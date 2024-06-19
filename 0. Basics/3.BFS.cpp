@@ -1,13 +1,4 @@
 // level wise traversal
-
-for (int i = 0; i < n; ++i)
-{
-	if(!vis[i]){
-		bfs(i);
-	}
-}
-
-
 // there can only be 1 node at level 0
 // BFS depends on starting node. Move by 1 place breadthwise across all directions per level
 // O(N) outer while + O(2xEdges) inside for loop that runs for total degrees TC  
@@ -25,6 +16,7 @@ vector<int> bfsOfGraph(int V, vector<int> adj[]) {
 		int node = q.front();
 		q.pop();
 		bfs.push_back(node);
+		//For each adjacent vertex of the current node, if it has not been visited, we push it into the queue and mark it as visited.
 
 		if(auto it : adj[node]){ //it now traverses over adj list of the node
 			if(!vis[it]){  //see if neighbours are visited

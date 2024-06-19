@@ -60,3 +60,18 @@ int main(){
 		adj[v].push_back{u,wt}; // Not required in case of directed graph 
 	}
 }
+
+
+
+--------
+vector<vector<int>> printAdjacency(int n, int m, vector<vector<int>>& edges) {
+    vector<vector<int>> adj(n);
+    for (int i = 0; i < n; i++) {
+        adj[i].push_back(i);
+    }
+    for (auto e : edges) {
+        adj[e[0]].push_back(e[1]);
+        adj[e[1]].push_back(e[0]);
+    }
+    return adj;
+}
